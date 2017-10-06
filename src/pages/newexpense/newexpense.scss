@@ -1,0 +1,17 @@
+page-newexpense {
+
+ion-title {
+    text-align: center;
+    }
+
+    ion-list {
+            background-color: map-get($colors, white);
+           .alternate {background-color: map-get($colors, secondary);}
+        }
+        ion-item {
+            background-color: map-get($colors, white);
+            padding: 20px;
+        }
+}
+
+

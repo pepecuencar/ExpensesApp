@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="primary" align-title="center">
+    <ion-title>Expense List</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content fullscreen class="bg-style">
+<ion-fab bottom right>
+    <button ion-fab (click)="goToNewExpense()">
+        <ion-icon name="add">
+        </ion-icon>
+    </button>
+ </ion-fab>
+<ion-refresher (ionRefresh)="doRefresh($event)"><ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+  <ion-list no-lines>
+    <ion-item *ngFor="let expense of expenses; let i = index;" [ngClass]="{'alternate':i%2}">
+        <span item-left ngSwitch="{{expense.type}}">
+            <ion-icon *ngSwitchCase="'Food'" name="ios-cafe-outline"></ion-icon>
+            <ion-icon *ngSwitchCase="'Taxi'" name="ios-bus-outline"></ion-icon>
+        </span>
+        <span item-left>
+            <p>{{expense.description}}</p>
+            <p>{{expense.date}}</p>
+        </span>
+        <span item-right>
+            <p>{{expense.quantity | currency:expense.currency}}</p>
+            <p><ng-container *ngIf=" expense.tip > '0'" >{{expense.tip | currency:expense.currency}}</ng-container></p>
+        </span>
+        <span item-right>
+        <div ngSwitch="{{expense.paymethod}}">
+                <ion-icon *ngSwitchCase="'true'" name="ios-card" value="false"></ion-icon>
+             <ion-icon *ngSwitchDefault name="logo-usd"></ion-icon>
+        </div>
+        </span>    
+    </ion-item>
+    </ion-list>
+</ion-content>

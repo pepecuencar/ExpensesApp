@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Add New Expense 
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <form (ngSubmit)="saveExpense()" id="saveForm" name="saveForm">
+        <ion-item>
+                <ion-label floating>Type</ion-label>
+                <ion-select [(ngModel)]="expense.type" name="type">
+                    <ion-option value="Food" >Food</ion-option>
+                    <ion-option value="Taxi">Taxi</ion-option>
+                    <ion-option value="Laundry">Laundry</ion-option>
+                    <ion-option value="Phone">Phone</ion-option>
+                </ion-select>
+        </ion-item>
+         <ion-item>
+                <ion-label stacked>Date</ion-label>
+                <ion-input type="date" displayFormat="DD-MM-YYYY " [(ngModel)]="expense.date" name="date" required="required"></ion-input>
+      </ion-item>
+        <ion-item>
+                <ion-label stacked>Amex?</ion-label>
+                <ion-toggle checked="false" [(ngModel)]="expense.paymethod" name="paymethod"></ion-toggle>
+      </ion-item>
+        <ion-item>
+                <ion-label stacked>Quantity</ion-label>
+                <ion-input type="number" step="0.01" [(ngModel)]="expense.quantity" name="quantity"></ion-input>
+    </ion-item>
+      <ion-item>  
+      <ion-label stacked>Tip, if applies</ion-label>
+      <ion-input type="number" step="0.01" [(ngModel)]="expense.tip" name="tip" ></ion-input>
+      </ion-item>
+      <ion-item>  
+      <ion-label floating>Currency</ion-label>
+                <ion-select [(ngModel)]="expense.currency" name="currency" >
+                    <ion-option value="CZK">CZK</ion-option>
+                    <ion-option value="EUR">EUR</ion-option>
+                    <ion-option value="MXN">MXN</ion-option>
+                    <ion-option value="USD">USD</ion-option>
+                    <ion-option value="GBP">GBP</ion-option>
+                </ion-select>
+    </ion-item>
+      <ion-item>
+      <ion-label stacked>Place Name</ion-label>
+     <ion-input type="text"[(ngModel)]="expense.description" name="description"></ion-input>
+      </ion-item>
+      <ion-item>
+            <button ion-button type="submit" id="enterExpense-button1" color="dark" block style="border-radius:10px 10px 10px 10px;">Add Expense</button>
+        </ion-item>
+  </form>
+</ion-content>

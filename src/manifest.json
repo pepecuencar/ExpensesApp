@@ -1,0 +1,11 @@
+{
+  "name": "Expenses App",
+  "short_name": "Expenses",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/icon/expenses.ico",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

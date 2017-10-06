@@ -1,0 +1,8 @@
+{
+  "name": "Expenses App",
+  "app_id": "",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
